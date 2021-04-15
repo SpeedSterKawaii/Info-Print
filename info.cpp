@@ -1,8 +1,8 @@
 /* Paste in your R_Lua.h or Address File */
-
+#define ASLR(x) (x - 0x400000 + (DWORD)GetModuleHandleA(0))
 
 typedef int(print_CCV* printr)(int, const char*, ...);
-printr printerf = (printr)(ASLR(print_addr));
+printr printerf = (printr)(ASLR(print_addr)); // IF ASLR Errors
 
 /* Paste in your main cpp file (entry) */
 
